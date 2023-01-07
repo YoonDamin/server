@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(cors());
 app.use("/uploads", express.static("uploads"));
 
-app.get("./uploads/banners", (req, res) => {
+app.get("/banners", (req, res) => {
 	models.Banner.findAll({
 		limit: 2,
 	})
