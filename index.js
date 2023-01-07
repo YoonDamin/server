@@ -30,7 +30,7 @@ app.get("/banners", (req, res) => {
 		})
 		.catch((error) => {
 			console.log(error);
-			res.status(500).send("에러가 발생했습니다.");
+			res.status(500).send("error!");
 		});
 });
 
@@ -59,7 +59,7 @@ app.get("/products", (req, res) => {
 		})
 		.catch((err) => {
 			consol.error(err);
-			res.status(400).send("에러 발생");
+			res.status(400).send("error!");
 		});
 });
 
@@ -67,7 +67,7 @@ app.post("/products", (req, res) => {
 	const body = req.body;
 	const { name, description, price, seller, imageUrl } = body;
 	if (!name || !description || !price || !seller || !imageUrl) {
-		res.status(400).send("모든 필드를 입력해주세요.");
+		res.status(400).send("pls input text");
 	}
 	models.Product.create({
 		name: name,
@@ -84,7 +84,7 @@ app.post("/products", (req, res) => {
 		})
 		.catch((err) => {
 			console.error(err);
-			res.status(400).send("상품 업로드에 문제가 발생하였습니다.");
+			res.status(400).send("error");
 		});
 	// res.send({
 	// 	body: body,
@@ -108,7 +108,7 @@ app.get("/products/:id", (req, res) => {
 		})
 		.catch((err) => {
 			console.error(err);
-			res.status(400).send("상품 조회에 에러가 발생했습니다.");
+			res.status(400).send("error");
 		});
 });
 
@@ -144,15 +144,15 @@ app.post("/purchase/:id", (req, res) => {
 });
 
 app.listen(port, () => {
-	console.log("그랩의 쇼핑몰 서버가 돌아가고 있습니다.");
+	console.log("server start");
 	models.sequelize
 		.sync()
 		.then(() => {
-			console.log("db 연결 성공");
+			console.log("db connect");
 		})
 		.catch((err) => {
 			console.error(err);
-			console.log("db 연결 에러");
+			console.log("db connect fail");
 			process.exit();
 		});
 });
