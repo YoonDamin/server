@@ -79,7 +79,7 @@ app.post("/products", (req, res) => {
 		});
 });
 
-server.listen(port, hostname);
+// server.listen(port, hostname);
 app.get("/products/:id", (req, res) => {
 	const params = req.params;
 	const { id } = params;
