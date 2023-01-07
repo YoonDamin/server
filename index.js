@@ -36,11 +36,8 @@ app.get("/banners", (req, res) => {
 
 app.get("/products", (req, res) => {
 	models.Product.findAll({
-		// db양이 많다면, 반드시 제한을 둬야한다.
-		// limit: 1,
-		// where :
 		order: [["createdAt", "DESC"]],
-		// 최신순정렬
+
 		attributes: [
 			"id",
 			"name",
